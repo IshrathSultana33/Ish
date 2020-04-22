@@ -1,4 +1,4 @@
-<ul *ngIf="employeeList.length>0">
+<ul *ngIf="EmployeeList.length>0">
   <li *ngFor="let employee of employeeList">
     <a [routerLink]="['/employee',employee.id]">
     <p class="w-50">name: {{employee.name}}</p>
@@ -8,4 +8,4 @@
     </a>
   </li>
 </ul>
-<h3 *ngIf="employeeList.length==0" class="text-center"> Employees Not Found</h3>
+<h3 *ngIf="EmployeeList.length==0" class="text-center"> Employees Not Found</h3>
