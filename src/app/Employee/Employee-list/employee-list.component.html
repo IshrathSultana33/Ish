@@ -1,0 +1,11 @@
+<ul *ngIf="employeeList.length>0">
+  <li *ngFor="let employee of employeeList">
+    <a [routerLink]="['/employee',employee.id]">
+    <p class="w-50">name: {{employee.name}}</p>
+    <p class="w-50 text-right">Id: {{employee.id}}</p>
+    <p class="w-50">Gender: {{employee.gender}}</p>
+    <p class="w-50 text-right">Address: {{employee.address}}</p>
+    </a>
+  </li>
+</ul>
+<h3 *ngIf="employeeList.length==0" class="text-center"> Employees Not Found</h3>
