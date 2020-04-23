@@ -1,29 +1,29 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
-import { StudentService } from './student.service';
+import { EmployeeService } from './employee.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Student } from './student-interface';
+import { Employee } from './employee-interface';
 
 
 @Component({
-  selector: 'student-add',
-  templateUrl: './student-add.component.html',
+  selector: 'employee-add',
+  templateUrl: './employee-add.component.html',
   styles: [ `input{width:100%;padding: 10px 15px;margin:5px auto;}` ]
 })
-export class StudentAddComponent implements OnInit  {
+export class EmployeeAddComponent implements OnInit  {
 
-  studentForm: FormGroup;
+  employeeForm: FormGroup;
   isEdit: Boolean = false;
   msg:String = '';
   
   constructor(
-    private studentService: StudentService,
+    private employeeService: EmployeeService,
     private route: ActivatedRoute,
     private router: Router
   ){}
   
   ngOnInit(){
-    this.studentForm = new FormGroup({
+    this.employeeForm = new FormGroup({
       name: new FormControl(''),
       id: new FormControl(''),
       address: new FormControl(''),
@@ -32,26 +32,26 @@ export class StudentAddComponent implements OnInit  {
       this.route.params.subscribe(param => {
         console.log(param)
         if(param && param.id){
-          let student = this.studentService.getStudent(param.id);
-          if(student){
-            this.studentForm.setValue(student);
+          let employee = this.employeeService.getEmployee(param.id);
+          if(employee){
+            this.employeeForm.setValue(employee);
             this.isEdit = true;
             }
-          else this.router.navigate(['/students'])
+          else this.router.navigate(['/employees'])
         }
       })
   }
 
   resetForm(){
-    console.log('reset',this.studentForm)
-    this.studentForm.reset();
+    console.log('reset',this.employeeForm)
+    this.employeeForm.reset();
   }
 
   add(){
-    if(this.studentForm.valid){
-      this.studentService.studentList.push(this.studentForm.value);
+    if(this.employeeForm.valid){
+      this.employeeService.employeeList.push(this.employeeForm.value);
       this.resetForm();
-      console.log('this.studentService.studelost',this.studentService.getStudents())}
+      console.log('this.employeeService.studelost',this.employeeService.getEmployees())}
       else {
       this.msg = 'Please complete form'
     }
@@ -59,9 +59,9 @@ export class StudentAddComponent implements OnInit  {
 
   edit(){
     this.msg = '';
-    if(this.studentForm.valid){
-      if(this.studentService.studentEdit(this.studentForm.value)){
-        this.router.navigate(['/students'])
+    if(this.employeeForm.valid){
+      if(this.employeeService.employeeEdit(this.employeeForm.value)){
+        this.router.navigate(['/employees'])
       }else {
         this.msg = 'Something went wrong'
       }

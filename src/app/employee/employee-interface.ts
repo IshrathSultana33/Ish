@@ -1,4 +1,4 @@
-export interface Student {
+export interface Employee {
   name: string;
   id: string;
   gender: string;

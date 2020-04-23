@@ -1,12 +1,12 @@
 
-<form [formGroup]="studentForm">
+<form [formGroup]="employeeForm">
   <div class="form-group">
       <input 
           type="text" 
           class="form-control w-100" 
           formControlName="name" 
           name="name" 
-          placeholder="Name">
+          placeholder="Employee Name">
   </div>
   <div class="form-group">
       <input 
@@ -14,24 +14,24 @@
           class="form-control w-100" 
           formControlName="id" 
           name="id" 
-          placeholder="Student ID"
+          placeholder="Employee ID"
           [readOnly]="isEdit">
   </div>
   <div class="form-group">
       <input 
           type="text" 
           class="form-control w-100" 
-          formControlName="gender" 
-          name="gender" 
-          placeholder="Gender">
+          formControlName="phoneno" 
+          name="phoneno" 
+          placeholder="Phone no">
   </div>
   <div class="form-group">
       <input 
           type="text" 
           class="form-control w-100" 
-          formControlName="address" 
-          name="address" 
-          placeholder="Address">
+          formControlName="location" 
+          name="location" 
+          placeholder="Location">
   </div>            
 </form>
 <button (click)="add()" *ngIf="!isEdit">Add</button>

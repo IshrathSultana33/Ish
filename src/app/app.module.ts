@@ -4,28 +4,28 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 
-import { StudentService } from './student/student.service';
+import { EmployeeService } from './employee/employee.service';
 
 import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './page-not-found.component';
-import { StudentAddComponent } from './student/student-add.component';
-import { StudentListComponent } from './student/student-list/student-list.component';
-import { StudentViewComponent } from './student/student-view/student-view.component';
+import { EmployeeAddComponent } from './employee/employee-add.component';
+import { EmployeeListComponent } from './employee/employee-list/employee-list.component';
+import { EmployeeViewComponent } from './employee/employee-view/employee-view.component';
 
 const appRoutes: Routes = [
-  { path: 'student-add', component: StudentAddComponent },
-  { path: 'student/:id',      component: StudentViewComponent },
+  { path: 'employee-add', component: EmployeeAddComponent },
+  { path: 'employee/:id',      component: EmployeeViewComponent },
   {
-    path: 'students',
-    component: StudentListComponent
+    path: 'employees',
+    component: EmployeeListComponent
   },
-  { path: 'student-add/:id', component: StudentAddComponent },
+  { path: 'employee-add/:id', component: EmployeeAddComponent },
   {
-    path: 'students',
-    component: StudentListComponent
+    path: 'employees',
+    component: EmployeeListComponent
   },
   { path: '',
-    redirectTo: '/students',
+    redirectTo: '/employees',
     pathMatch: 'full'
   },
   { path: '**', component: PageNotFoundComponent }
@@ -42,8 +42,8 @@ const appRoutes: Routes = [
       { enableTracing: true } // <-- debugging purposes only
     )
   ],
-  declarations: [ AppComponent, StudentAddComponent,StudentViewComponent,StudentListComponent,PageNotFoundComponent ],
-  providers: [StudentService],
+  declarations: [ AppComponent, EmployeeAddComponent,EmployeeViewComponent,EmployeeListComponent,PageNotFoundComponent ],
+  providers: [EmployeeService],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }
