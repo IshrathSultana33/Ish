@@ -26,8 +26,8 @@ export class EmployeeAddComponent implements OnInit  {
     this.employeeForm = new FormGroup({
       name: new FormControl(''),
       id: new FormControl(''),
-      address: new FormControl(''),
-      gender: new FormControl(''),
+      location: new FormControl(''),
+      phoneno: new FormControl(''),
     })
       this.route.params.subscribe(param => {
         console.log(param)

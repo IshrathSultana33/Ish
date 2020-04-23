@@ -1,10 +1,14 @@
 <ul *ngIf="employeeList.length>0">
   <li *ngFor="let employee of employeeList">
-    <a [routerLink]="['/employee',employee.id]">
-    <p class="w-50">Employee name: {{employee.name}}</p>
-    <p class="w-50 text-right">Id: {{employee.id}}</p>
-    <p class="w-50">Phone no: {{employee.phoneno}}</p>
-    <p class="w-50 text-right">Location: {{employee.location}}</p>
+  <a [routerLink]="['/employee',employee.id]">
+    <tr>
+    <th><p class="w-50">Name: {{employee.name}}</p></th>&nbsp;
+    <th><p class="w-50 text-right">Id: {{employee.id}}</p></th>&nbsp;
+    <th><p class="w-50">Phoneno: {{employee.phoneno}}</p></th>&nbsp;
+    <th><p class="w-50 text-right">Location: {{employee.location}}</p></th></tr>
+    <td><button (click)="edit()" *ngIf="!isEdit">Edit</button></td> 
+    <td><button (click)="edit()" *ngIf="!isEdit">Details</button></td>
+    <td><button (click)="delete()"*ngIf="!isEdit">Delete</button></td> 
     </a>
   </li>
 </ul>

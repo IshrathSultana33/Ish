@@ -20,6 +20,13 @@ export class EmployeeService {
     });
     return employee;
   }
+  EmployeeDelete(id){
+    let employee: Employee;
+    this.employeeList.map(val=>{
+      if(val.id == id) employee = val;
+    });
+    return null;
+  }
   employeeEdit(employee){
     let present: Boolean = false;
     this.employeeList.map((val, index)=>{

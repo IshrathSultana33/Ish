@@ -34,6 +34,7 @@
           placeholder="Location">
   </div>            
 </form>
-<button (click)="add()" *ngIf="!isEdit">Add</button>
-<button (click)="edit()" *ngIf="isEdit">Edit</button>
-<button (click)="resetForm()" *ngIf="!isEdit">Reset</button>
+<button (click)="add()" *ngIf="!isEdit">Add</button> &nbsp;
+<button (click)="edit()" *ngIf="isEdit">Edit</button> &nbsp;
+<button (click)="delete()" *ngIf="isEdit">Delete</button>&nbsp;
+<button (click)="resetForm()" *ngIf="!isEdit">Reset</button> 
